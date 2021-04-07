@@ -35,7 +35,7 @@ try:
     from {{ project_name }}.local_settings import *
 #    from geonode.local_settings import *
 except ImportError:
-    from geonode.settings import *
+    from cartoview.settings import *
 
 #
 # General Django development settings

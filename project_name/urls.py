@@ -21,7 +21,7 @@
 from django.conf.urls import url, include
 from django.views.generic import TemplateView
 
-from geonode.urls import urlpatterns
+from cartoview.urls import urlpatterns
 from geonode.monitoring import register_url_event
 
 urlpatterns += [
