@@ -8,6 +8,10 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | tee /
 RUN echo "deb http://deb.debian.org/debian/ stable main contrib non-free" | tee /etc/apt/sources.list.d/debian.list
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
+# To get GDAL 3.2.1 to fix this issue https://github.com/OSGeo/gdal/issues/1692
+# TODO: The following line should be removed if base image upgraded to Bullseye
+RUN echo "deb http://deb.debian.org/debian/ bullseye main contrib non-free" | tee /etc/apt/sources.list.d/debian.list
+
 # This section is borrowed from the official Django image but adds GDAL and others
 RUN apt-get update && apt-get install -y \
     libgdal-dev libpq-dev libxml2-dev \
@@ -56,7 +60,7 @@ RUN pip install --upgrade --no-cache-dir  --src /usr/src -r requirements.txt \
 RUN pip install --upgrade  -e .
 
 # Activate "memcached"
-RUN apt install memcached
+RUN apt install -y memcached
 RUN pip install pylibmc \
     && pip install sherlock
 
