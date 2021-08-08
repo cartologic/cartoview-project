@@ -1,1 +1,1 @@
--e git+https://github.com/cartologic/cartoview.git@master#egg=Cartoview
+cartoview==1.32.0
