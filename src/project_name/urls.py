@@ -18,7 +18,7 @@
 #
 #########################################################################
 
-from geonode.urls import urlpatterns
+from cartoview.urls import urlpatterns
 
 '''
 # You can register your own urlpatterns here

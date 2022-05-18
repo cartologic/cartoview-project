@@ -247,6 +247,7 @@ def fixtures(ctx):
 --settings={0}".format(_localsettings()), pty=True)
 #     ctx.run("python manage.py set_all_datasets_metadata -d \
 # --settings={0}".format(_localsettings()), pty=True)
+    ctx.run("python manage.py loaddata app_stores.json --settings={0}".format(_localsettings()), pty=True)
 
 
 @task
